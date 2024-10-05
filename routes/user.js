@@ -16,7 +16,6 @@ router.get('/users', async (req, res)=>{
         }
     </ul>`
     res.send(html);
-
 });
 
 router.get('/',async (req, res) => {
@@ -32,7 +31,7 @@ router
     if(!user) return res.status(404).json({error: 'User not found'});
     return res.json(user);
 }).patch(async (req, res)=> {
-    const user = await User.findByIdAndUpdate(req.params.id, { lastName: req.lastName });
+    const user = await User.findByIdAndUpdate(req.params.id, { lastName: req.body.lastName9876 });
     if(!user) return res.status(404).json({error: 'User not found'});
     return res.json({status: 'Success'});
 }).delete(async (req, res)=> {
