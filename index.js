@@ -1,4 +1,5 @@
 const express = require('express');
+const userRouter = require('./routes/user')
 
 const {connectMongoDb} = require('./connection');
 const {logReqRes} = require('./middleware')
@@ -12,10 +13,8 @@ connectMongoDb('mongodb://127.0.0.1:27017/crud-api');
 app.use(express.urlencoded({extends : false}));
 app.use(logReqRes('log.txt'));
 
-app.get('/', function (req, res) {
-    res.send('GET request to Home')
-  });
+app.use('/api/users', userRouter);
 
-  app.listen(PORT, () => {
+app.listen(PORT, () => {
     console.log(`Now listening on port ${PORT}`);
 }); 
