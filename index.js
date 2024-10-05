@@ -1,16 +1,16 @@
 const express = require('express');
 
-const mongoose = require('mongoose');
+const {connectMongoDb} = require('./connection');
+const {logReqRes} = require('./middleware')
 
 const app = express();
 
-const PORT = 5001;
+const PORT = 5001;  
 
-mongoose.connect('mongodb://127.0.0.1:27017/crud-api').then(
-  ()=> console.log('MongoDb connected'))
-  .catch(()=> console.log('Failed to connect Db'));
+connectMongoDb('mongodb://127.0.0.1:27017/crud-api');
 
-// connectMongoDb('mongodb://127.0.0.1:27017/crud-api')
+app.use(express.urlencoded({extends : false}));
+app.use(logReqRes('log.txt'));
 
 app.get('/', function (req, res) {
     res.send('GET request to Home')

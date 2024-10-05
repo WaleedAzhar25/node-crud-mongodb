@@ -18,7 +18,14 @@
   "homepage": "https://github.com/WaleedAzhar25/node-crud-mongodb#readme",
   "dependencies": {
     "express": "^4.21.0",
+    "fs": "^0.0.1-security",
     "mongoose": "^8.7.0",
     "nodemon": "^3.1.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.12.0",
+    "eslint": "^9.12.0",
+    "eslint-plugin-react": "^7.37.1",
+    "globals": "^15.10.0"
   }
 }
